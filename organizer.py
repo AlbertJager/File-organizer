@@ -63,7 +63,7 @@ def scan_directory(directory: Path) -> Iterator[Path]:
 def categorize_file_by_extension(path: Path, file: Path) -> Path:
     '''Returns a category corresponding to the file'''
     if file.suffix in extensions:
-        category = path / extensions[file.suffix]
+        category = path / extensions[file.suffix.lower()]
     else:
         category = path / "other"
     category.mkdir(exist_ok=True)
