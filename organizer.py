@@ -3,6 +3,10 @@
 '''
 from pathlib import Path 
 from collections.abc import Iterator
+import argparse
+
+
+
 extensions = {
     # Documents
     ".txt": "texts",
@@ -88,7 +92,14 @@ def organize(path: Path) -> None:
     print(f"\nTotal files moved: {total}\n")
 
 
+def get_path() -> Path:
+    parser = argparse.ArgumentParser(description="Organize files by their extensions.")
+    parser.add_argument("path", help="Directory to organize")
+    args = parser.parse_args()
+    path = Path(args.path.strip())
+    return path
+
+
 if __name__ == "__main__":
-    path = Path(fr"{input("Enter the path: ")}".strip())
-    organize(path)
+    organize(get_path())
     
