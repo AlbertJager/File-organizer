@@ -1,6 +1,3 @@
-'''
-    Scans directory, categorizes files by extension, moves them into folders(/images, /documents, etc.), using pathlib, with a cli interface
-'''
 from pathlib import Path 
 from collections.abc import Iterator
 import argparse
